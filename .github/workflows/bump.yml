@@ -11,7 +11,7 @@ on:
     types: [meiro-release]
   # A fallback for a dispatch that did not arrive, and for a cask that drifted.
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:

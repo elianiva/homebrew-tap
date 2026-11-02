@@ -29,5 +29,7 @@ logs.
 ## Updating the cask
 
 `.github/workflows/bump.yml` reads the newest `desktop-v` release of
-[elianiva/meiro](https://github.com/elianiva/meiro) every day and commits its
-version and checksum to `Casks/meiro.rb`.
+[elianiva/meiro](https://github.com/elianiva/meiro) and commits its version and
+checksum to `Casks/meiro.rb`. The release workflow of Meiro asks for a run
+through `repository_dispatch`, and an hourly check covers a dispatch that did
+not arrive.
