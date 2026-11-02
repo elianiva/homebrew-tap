@@ -2,7 +2,14 @@ name: Update the cask
 
 # Points the cask at the newest desktop-v release of Meiro, so the version and
 # checksum brew installs match what the app publishes.
+#
+# The release workflow of Meiro sends repository_dispatch, which is how one
+# repository's workflow reaches another: a workflow's own token cannot, and
+# the release event only fires inside the repository that publishes.
 on:
+  repository_dispatch:
+    types: [meiro-release]
+  # A fallback for a dispatch that did not arrive, and for a cask that drifted.
   schedule:
     - cron: "0 4 * * *"
   workflow_dispatch:
