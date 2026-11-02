@@ -1,6 +1,6 @@
 cask "meiro" do
-  version "0.5.2"
-  sha256 "0bc0873753cc87524e051205b73329f26255d790f1abd1285ca8fb400b75516b"
+  version "0.5.1"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
 
   url "https://github.com/elianiva/meiro/releases/download/desktop-v#{version}/Meiro-#{version}-macos-universal.dmg"
   name "Meiro"
