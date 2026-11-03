@@ -19,6 +19,17 @@ permissions:
 
 jobs:
   bump:
+    # Only the tap's owner moves the cask. A dispatch commits and pushes on
+    # its own, and so does a manual run, so both ask for the owner: a
+    # repository_dispatch reports the owner of the token that sent it as the
+    # actor. triggering_actor is the user who re-ran the workflow, which actor
+    # alone would still report as the owner. The hourly check is GitHub's own
+    # and covers a dispatch that never arrived, so it keeps running. A fork
+    # carries this file but not the owner, so it refuses there too.
+    if: >-
+      github.repository_owner == 'elianiva' &&
+      (github.event_name == 'schedule' ||
+      (github.actor == 'elianiva' && github.triggering_actor == 'elianiva'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
